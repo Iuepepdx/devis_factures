@@ -9,18 +9,15 @@ def estimates_add():
     for i in range(estimates_counter): 
         estimates["Devis "+str(i)] = []
         estimates["Devis "+str(i)].append(input("Donnez une description\n"))
-        estimates["Devis "+str(i)].append(input("Donnez la quantité\n"))
-        estimates["Devis "+str(i)].append(input("Donnez le prix\n"))  
+        estimates["Devis "+str(i)].append(int(input("Donnez la quantité\n")))
+        estimates["Devis "+str(i)].append(int(input("Donnez le prix\n")))  
         print(estimates["Devis "+str(i)])
     return modele()
 
-def modele():        # Fonction qui montre la facture
-    if len(estimates[:[2]])>10:
-        print("ok")
-
-    else:
-        for devis in range(estimates):
-            print(f"votre {estimates["Devis "]+str(devis)}")
+def modele():
+    for i in range(len(estimates)):     # parcourir les devis 
+        estimation = estimates["Devis " +str(i)][1]*estimates["Devis " +str(i)][2]
+        print(f"ton devis {i} est estimé à {estimation}")
 
 estimates_add()
 '''
